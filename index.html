@@ -1,0 +1,93 @@
+<html lang="en">
+<header class="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prototype.css">
+    <title>News and Events</title>
+    <img id="stmary" src="stmaryLogo.png">
+    <img id="mill" src="milleniumLogo.png">
+    <br>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Resources</a>
+        <a href="#">News and Events</a>
+        <a href="#">Support Us</a>
+    </nav>
+</header>
+<body>
+    <br>
+    <h1 id="heading">All Events</h1>
+    <h2>Recents</h2>
+    <nav class="months">
+        <a href="#jan" id="janu">Jan</a>
+        <a href="#mar" id="march">Mar</a>
+        <a href="#apr" id="april">Apr</a>
+        <a href="#">May</a>
+        <a href="#">June</a>
+        <a href="#">2023</a>  
+    </nav>
+    <div class="content">
+        <section id="jan">
+            <h1>JANUARY</h1>
+            <p>content</p>
+        </section>
+        <br>
+        <section id="mar">
+            <h1>MARCH</h1>
+            <p>content</p>
+        </section>
+        <br>
+        <section id="apr">
+            <h1>APRIL</h1>
+            <p>content</p>
+        </section>
+    </div>
+    <hr>
+    <footer>footer</footer>       
+</body>
+<script>
+    const janMonth= document.getElementById("janu");
+    const marMonth= document.getElementById("march");
+    const aprMonth= document.getElementById("april");
+    //clicking function
+    janMonth.addEventListener('click', function(event){
+        event.preventDefault();
+        const targetSection= document.getElementById("jan");
+        smoothScroll(targetSection);
+    })
+    marMonth.addEventListener('click', function(event){
+        event.preventDefault();
+        const targetSection= document.getElementById("mar");
+        smoothScroll(targetSection);
+    })
+    aprMonth.addEventListener('click', function(event){
+        event.preventDefault();
+        const targetSection= document.getElementById("apr");
+        smoothScroll(targetSection);
+    })
+
+
+    function smoothScroll(targetSection) {
+        const targetY = targetSection.offsetTop; // Get the vertical offset of the target section
+        const currentY = window.scrollY; // Get the current vertical scroll position
+
+        // Calculate the distance to scroll
+        const scrollDistance = targetY - currentY;
+
+        // Use animation for smooth scrolling
+        let start = null;
+        const animation = (currentTime) => {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const easedY = currentY + scrollDistance * (timeElapsed / 1000); // Ease the scroll (adjust 1000 for speed)
+        window.scrollTo(0, easedY);
+        if (Math.abs(scrollDistance - easedY) < 5) return; // End animation if close enough to target
+        requestAnimationFrame(animation);
+    };
+
+    requestAnimationFrame(animation);
+  }
+
+</script>
+</html>

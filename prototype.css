@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+nav a{
+    text-decoration: none;
+    padding: 10px;
+}
+#mill{
+    float: right;
+}
+#stmary{
+    float:left;
+}
+#heading{
+    text-align: center;
+}
+a{
+    color: brown;
+}
+.months a:hover{
+    text-decoration: underline solid 7px;
+}
+content{
+    width: 50%;
+}
+p{
+    margin: 40px;
+    border: solid black 5px;
+    border-radius: 5px;
+    padding: 70px;
+}
